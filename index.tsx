@@ -47,9 +47,13 @@ function Input({ val, large, tall, operator }: ButtonType) {
 function Display() {
   const operation = useSelector((state: CalculatorState) => state.operation)
   return (
-    <div className='w-full bg-gray-200 py-1 px-3 text-right font-bold text-sm sm:text-md md:text-2xl shadow-inner'>
-      <div>{operation.join(' ') || 0}</div>
-      <div>{(operation.length > 0 && operation.slice(-1)[0]) || '_'}</div>
+    <div className='w-full bg-gray-200 py-1 px-3 text-right font-bold shadow-inner'>
+      <div className='text-sm sm:text-sm md:text-lg text-mainColor'>
+        {operation.join(' ') || 0}
+      </div>
+      <div className='text-sm sm:text-md md:text-2xl'>
+        {(operation.length > 0 && operation.slice(-1)[0]) || '_'}
+      </div>
     </div>
   )
 }
